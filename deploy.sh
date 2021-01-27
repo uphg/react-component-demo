@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 set -e
+rm -rf dist
 yarn build
 cd dist
 
