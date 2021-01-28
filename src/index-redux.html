@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redux demo</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/redux/4.0.5/redux.min.js"></script>
+</head>
+<body>
+  <!-- Redux 结合 Vanilla JS 的案例 -->
+  <!-- 参考官方文档：https://github.com/reduxjs/redux/blob/master/examples/counter-vanilla/index.html -->
+  <div id="root">
+    <p>点击 x <span id="value">0</span> 次</p>
+    <div>
+      <button id="increment">+1</button>
+      <button id="decrement">-1</button>
+      <button id="incrementIfOdd">单数增加</button>
+      <button id="incrementAsync">三秒后增加</button>
+    </div>
+  </div>
+  <script>
+    function reducer(state, action) {
+      if (typeof state === 'undefined') {
+          return 0
+        }
+      switch (action.type) {
+        case '点击添加':
+          return state + 1
+        case '点击减少':
+          return state - 1
+        case '点击奇数添加':
+          return state + 1
+        case '点击三秒后添加':
+          return state + 1
+        default:
+          return state
+      }
+    }
+
+    const store = Redux.createStore(reducer)
+    const valueText = getEl('#value')
+    function render() {
+      valueText.innerHTML = store.getState()
+    }
+
+    // 第一次初始化 render
+    render()
+
+    // 监听数据，每次改变都重新 render
+    store.subscribe(render)
+
+    getEl('#increment').addEventListener('click', function() {
+      store.dispatch({ type: '点击添加' })
+    })
+
+    getEl('#decrement').addEventListener('click', function() {
+      store.dispatch({ type: '点击减少' })
+    })
+
+    getEl('#incrementIfOdd').addEventListener('click', function() {
+      if (store.getState() % 2 !== 0) {
+        store.dispatch({ type: '点击奇数添加' })
+      }
+    })
+
+    getEl('#incrementAsync').addEventListener('click', function() {
+      let timerId = setTimeout(() => {
+        window.clearTimeout(timerId)
+        store.dispatch({ type: '点击三秒后添加' })
+      }, 3000)
+    })
+
+    function getEl(el) {
+      return document.querySelector(el)
+    }
+  </script>
+</body>
+</html>
