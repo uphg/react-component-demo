@@ -2,6 +2,10 @@ p {
   margin: 0;
   margin-bottom: 10px;
 }
+button {
+  cursor: pointer;
+}
+
 .grandfather {
   max-width: 600px;
   margin: 60px auto 0;

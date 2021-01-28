@@ -1,4 +1,4 @@
-// 使用 props 实现简单的组件通信
+// 使用 props 单向数据流实现简单的组件通信
 function Child(props) {
   return (
     <div className="child">
