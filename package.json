@@ -4,10 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel src/index.html",
+    "start": "parcel src/index.html",
     "build": "parcel build src/index.html --public-url ./"
   },
   "devDependencies": {
     "cssnano": "^4.1.10"
+  },
+  "dependencies": {
+    "react": "^17.0.1"
   }
 }

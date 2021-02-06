@@ -4,3 +4,15 @@
 - [x] 使用 EventHub 实现组件间通信。
 - [x] EventHub 组件间通信 - 分离全局数据。
 - [x] 使用 Redux 代替 EventHub
+
+## 运行
+
+```sh
+yarn start
+```
+
+## 打包
+
+```sh
+yarn build
+```
