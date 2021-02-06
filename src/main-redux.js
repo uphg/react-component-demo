@@ -1,3 +1,5 @@
+// 使用 Redux 代替 EventHub
+
 // 引入 Redux 相关 API
 const createStore = Redux.createStore
 
