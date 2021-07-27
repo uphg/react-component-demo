@@ -5,6 +5,12 @@
 - [x] EventHub 组件间通信 - 分离全局数据。
 - [x] 使用 Redux 代替 EventHub
 
+## 初始化
+
+```sh
+yarn install
+```
+
 ## 运行
 
 ```sh
